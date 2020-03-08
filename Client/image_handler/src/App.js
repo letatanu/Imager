@@ -4,7 +4,7 @@ import Recaptcha from 'react-google-invisible-recaptcha';
 class App extends Component {
 
   state = {
-    selectedImage: null,
+    selectedImages: null,
     processedImg: null,
     urls : {
       host: "http://localhost:8000",
@@ -14,9 +14,18 @@ class App extends Component {
 
  
   handleImageChange = (e) => {
-    this.setState({
-      selectedImage: e.target.files[0]
-    })
+    let seletecedImages = e.target.files
+    let images = this.state.selectedImages
+    if (images.length + seletecedImages.length > 20) {
+      this.setState({
+        selectedImages: [...this.state.selectedImages,...seletecedImages.slice(0,20-n)]
+      });
+    } else {
+      this.setState( {
+        selectedImages: [...this.state.selectedImages, ...seletecedImages]
+      })
+    }
+    
   };
 
   sendMessage = () => {
@@ -26,12 +35,12 @@ class App extends Component {
 
   onResolved = async (e) => {
     e.preventDefault();
+    index = this.state.seletecedImages.length-1;
     console.log(this.state);
     let form_data = new FormData();
-    form_data.append('image', this.state.selectedImage);
-    form_data.append('title', this.state.selectedImage.name);
-    form_data.append('kindOfTool', 'toGrayScale');
-
+    form_data.append('image', this.state.selectedImages[index]);
+  
+    
     let url = this.state.urls.post;
     console.log(form_data)
     axios.post(url, form_data, {
