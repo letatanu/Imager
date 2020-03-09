@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Recaptcha from 'react-google-invisible-recaptcha';
-class App extends Component {
+// import Recaptcha from 'react-google-invisible-recaptcha';
+import ImgQueue from '../modules/ImgQueue/ImgQueue';
 
+class App extends Component {
+  /**
+   * Saving state
+   */
   state = {
     selectedImages: null,
     processedImg: null,
@@ -12,7 +16,11 @@ class App extends Component {
     }
   };
 
- 
+
+ /**
+  * This code below is to handle image changes
+  */
+
   handleImageChange = (e) => {
     let seletecedImages = e.target.files
     let images = this.state.selectedImages
@@ -25,13 +33,15 @@ class App extends Component {
         selectedImages: [...this.state.selectedImages, ...seletecedImages]
       })
     }
-    
   };
 
-  sendMessage = () => {
-    this.recaptcha.execute();
-  } 
 
+  /**
+   * Testing for recaptcha
+   */
+  // sendMessage = () => {
+  //   this.recaptcha.execute();
+  // }
 
   onResolved = async (e) => {
     e.preventDefault();
@@ -39,8 +49,7 @@ class App extends Component {
     console.log(this.state);
     let form_data = new FormData();
     form_data.append('image', this.state.selectedImages[index]);
-  
-    
+
     let url = this.state.urls.post;
     console.log(form_data)
     axios.post(url, form_data, {
@@ -48,13 +57,13 @@ class App extends Component {
         'content-type': 'multipart/form-data'
       }
     })
-        .then(res => {
-          this.setState({
-            processedImg: this.state.urls.host + res.data
-          });
-          console.log(this.state.processedImg);
-        })
-        .catch(err => console.log(err))
+      .then(res => {
+        this.setState({
+          processedImg: this.state.urls.host + res.data
+        });
+        console.log(this.state.processedImg);
+      })
+      .catch(err => console.log(err))
   };
 
   render() {
