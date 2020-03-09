@@ -8,6 +8,7 @@ import {
     Collapse,
     NavbarToggler
 } from 'reactstrap';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const links = [
