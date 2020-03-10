@@ -55,6 +55,7 @@
     "react-google-recaptcha-v3": "^1.4.1",
     "react-recaptcha": "^2.3.10",
     "react-recaptcha-v3": "^1.1.0",
+    "react-router-dom": "^5.1.2",
     "reactstrap": "^8.4.1",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",

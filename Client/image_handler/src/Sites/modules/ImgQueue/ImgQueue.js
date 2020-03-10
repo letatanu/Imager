@@ -19,7 +19,7 @@ class ImageQueue extends Component {
 
     render() {
         let list = this.state.images.map((image) => {
-            return <ImageCard img={image} onClick={this.onClickedImage} title={}></ImageCard>
+            return <ImageCard img={image} onClick={this.onClickedImage} title={''}></ImageCard>
         });
         
         return (

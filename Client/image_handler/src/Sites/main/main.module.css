@@ -1,4 +1,39 @@
 .welcomeContainer {
-    height: 100vh,
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: #edf5e1;
+    font-family: "Open Sans", sans-serif;
+    background-color: #5cdb95;
+}
+.title {
+    font-size: 4rem;
+    max-width: 50%;
+    text-align: center;
+}
+.subTitle {
+    font-size: 1rem;
+    max-width: 50%;
+    text-align: center;
+    margin-top: 3em;
+}
+.mainContainter{
+    display: flex;
+    /* align-items: stretch; */
+    flex-direction: column;
+    height: 100vh;
+   
+}
 
+.navBar{
+    color: #05386B;
+}
+
+.button {
+    margin: 1em;
+    /* background-color: #05386B; */
 }
