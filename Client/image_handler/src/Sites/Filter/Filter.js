@@ -4,10 +4,11 @@ import ImageQueue from '../modules/ImgQueue/ImgQueue';
 import { Jumbotron, ListGroup } from "react-bootstrap";
 import classes from './Filter.module.css';
 import axios from 'axios';
+import { Card, CardImg, CardTitle } from 'reactstrap';
 
 import 'rc-slider/assets/index.css';
 
-const tasks = ["toGray", "Gaussian", "Detail" ]
+const tasks = ["toGray", "Gaussian", "Detail"]
 
 class Filter extends Component {
     state = {
@@ -16,12 +17,14 @@ class Filter extends Component {
         currentResult: 0,
         task: 'toGray',
         imageClicked: -1,
+        filterSelected: 0,
+        loading: false
     };
 
     handleImageChange = (e) => {
         let selectedImage = e.target.files[0];
         let l = this.state.selectedImages.length;
-        console.log(selectedImage);
+        // console.log(l, selectedImage);
         if (l + 1 <= 20) {
             this.setState((prevState) => ({
                 selectedImages: [...prevState.selectedImages,
@@ -30,8 +33,9 @@ class Filter extends Component {
                     image: selectedImage,
                     url: URL.createObjectURL(selectedImage)
                 }],
-                imageClicked: l
+                imageClicked: l,
             }));
+            this.GetPostHandlers(selectedImage, tasks[this.state.filterSelected], l);
         }
     };
 
@@ -56,10 +60,25 @@ class Filter extends Component {
         axios.post(url, form_data, {
             headers: {
                 'content-type': 'multipart/form-data'
-            }
+            },
+            onDownloadProgress: (progressEvent) => {
+                var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                console.log("download", percentCompleted);
+                // this.setState({
+                //     loading: percentCompleted
+                // })
+            },
+            onUpLoadProgress: (progressEvent) => {
+                var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                console.log("upload",percentCompleted);
+                this.setState({
+                    loading: true
+                })
+            },
         })
             .then(res => {
                 data = res.data
+                // console.log(Math.ceil(res.data.count / res.data.results.length))
                 let procImage = [...this.state.processedImg];
                 const index = procImage.findIndex(x => x.id === id);
                 if (index !== -1) {
@@ -77,7 +96,8 @@ class Filter extends Component {
                 }
                 console.log(res.data);
                 this.setState({
-                    currentResult: urls.host + res.data
+                    currentResult: urls.host + res.data,
+                    loading: false
                 })
             })
             .catch(err => {
@@ -86,36 +106,54 @@ class Filter extends Component {
 
     };
     filterSelected = (id) => {
-        console.log(id);
+        // console.log(id);
         this.setState({
-            task: tasks[id]
+            task: tasks[id],
+            filterSelected: id
         })
         if (this.state.imageClicked !== -1) {
             this.GetPostHandlers(this.state.selectedImages[this.state.imageClicked].image, tasks[id], this.state.imageClicked);
         }
     }
     render() {
-        return (<div>
+        const result = this.state.selectedImages.length !== 0 ? (
+            <div className={classes.displayResult}>
+                <Card className={classes.retunedImg}>
+                    <CardImg src={this.state.selectedImages[this.state.imageClicked].url} alt="Before" ></CardImg>
+                    <CardTitle disabled> Before </CardTitle>
+                </Card>
+                <Card className={classes.retunedImg}>
+                    <CardImg src={this.state.currentResult} alt="After"></CardImg>
+                    <CardTitle disabled> After </CardTitle>
+                </Card>
+            </div>
+        ) : null;
+
+        const buttons = ["To Gray", "Gaussian Blur", "Detail Enhance"].map((name, key) => {
+            // console.log(key);
+           return  <ListGroup.Item action className={key === this.state.filterSelected ? classes.selected : classes.notSelected} onClick={() => this.filterSelected(key)} key={key}>{name}</ListGroup.Item>
+        })
+        return (<div className={classes.container}>
             <NavBar></NavBar>
             <Jumbotron fluid className={classes.jumbotron}>
-                <h1>
+                <h1 className={classes.title}>
                     Filters
                 </h1>
-                <p>
+                <p className={classes.subTitle}>
                     The place to make up your images
                 </p>
                 <p> You can upload up to 20 images</p>
             </Jumbotron>
-            <ImageQueue Queue={this.state.selectedImages} onClick={this.clickOnImage}></ImageQueue>
-            <input type="file"
-                id="image"
-                accept="image/png, image/jpeg" onChange={this.handleImageChange} required />
-            <ListGroup>
-                <ListGroup.Item action variant="success" onClick={() => this.filterSelected(0)}>To Gray</ListGroup.Item>
-                <ListGroup.Item action variant="danger" onClick={() => this.filterSelected(1)}>Gaussian Blurring</ListGroup.Item>
-                <ListGroup.Item action variant="warning" onClick={() => this.filterSelected(2)}>Detail Enhancing</ListGroup.Item>
-            </ListGroup>
-            <img src={this.state.currentResult} alt=""></img>
+            <div className={classes.body} pointerEvents={this.state.loading? "none": 'auto'}>
+                <ImageQueue Queue={this.state.selectedImages} onClick={this.clickOnImage} selectedID={this.state.imageClicked == -1 ? 0 : this.state.imageClicked}></ImageQueue>
+                <input type="file"
+                    id="image"
+                    accept="image/png, image/jpeg" onChange={this.handleImageChange} required />
+                <ListGroup>
+                    {buttons}
+                </ListGroup>
+                {result}
+            </div>
         </div>
         )
     }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { CardDeck } from 'reactstrap';
 import Image_Card from './imageModule/Image';
 import classes from './ImgQueue.module.css';
 class ImageQueue extends Component {

@@ -7,6 +7,7 @@ import classes from './palette.module.css';
 import axios from 'axios';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import { Card, CardImg, CardTitle } from 'reactstrap';
 
 const marks = {  
     2: 2,
@@ -40,7 +41,8 @@ class Palette extends Component {
                     url: URL.createObjectURL(selectedImage),
                     palette: [],
                     isSliderChanged: false
-                }]
+                }], 
+                selectedID: l
             }));
             this.GetPostHandlers(selectedImage, "palette", l);
         }
@@ -111,7 +113,7 @@ class Palette extends Component {
             selectedImages: [...selectedImgs],
             numberOfColors: value,
             currentResult: [], 
-            selectedID: -1
+            selectedID: -2
         })
         // const id = this.state.selectedID;
         // if (id >= 0) {
@@ -128,16 +130,21 @@ class Palette extends Component {
     render() {
         const colors = [...this.state.currentResult];
         const results = colors.splice(0,this.state.numberOfColors);
+        console.log("id", this.state.selectedID);
+        const selectedImg = this.state.selectedID >=0? (<Card className={classes.retunedImg}>
+        <CardImg src={this.state.selectedImages[this.state.selectedID].url} alt="" ></CardImg>
+        <CardTitle disabled> Sample </CardTitle>
+    </Card>):null;
         return (<div className={classes.container}>
             <NavBar></NavBar>
             <Jumbotron fluid className={classes.jumbotron}>
-                <h1>
+                <h1 className={classes.title}>
                     Palette
                 </h1>
-                <p>
+                <p className={classes.subTitle}>
                     The place to get colors from your images
-                </p>
-                <p> You can upload up to 20 images</p>
+                 </p>
+                 <p> You can upload up to 20 images</p>
             </Jumbotron>
             <div className={classes.body}>
             <ImageQueue Queue={this.state.selectedImages} onClick={this.clickOnImage} selectedID={this.state.selectedID==-1? 0: this.state.selectedID}></ImageQueue>
@@ -148,7 +155,10 @@ class Palette extends Component {
             <Slider min={2} max={9} onChange={(value) => this.sliderChanged(value)} defaultValue={4} dots marks={marks}></Slider>
             <div style={{margin: "1em"}}>The number of dominant colors</div>  
             </div>
+            <div className={classes.displayResult}>
             <PaletteDiplays colors={results}></PaletteDiplays>
+            {selectedImg}
+            </div>
             </div>
             
         </div>

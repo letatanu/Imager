@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardImg, CardTitle, CardText} from 'reactstrap';
+import {Card, CardImg, CardTitle} from 'reactstrap';
 import classes from './Image.module.css';
 
 // const Button = styled.button`

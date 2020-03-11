@@ -11,13 +11,13 @@ const PaletteDiplays = (props) => {
     const list = props.colors? props.colors.map((color, index) => {
         let rgb = rgbToHex(color);
         console.log(rgb);
-        return <div key={index} className={classes.card}>
+        return <div key={index} >
            <Button style={{backgroundColor: `${rgb}`}} className={classes.Button}/>
             {rgb}  
         </div>;
     }) : [];   
     
-    return <div>{list}</div>
+    return <div className={classes.card}>{list}</div>
 }
 
 export default PaletteDiplays;

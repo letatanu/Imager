@@ -4,5 +4,75 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 70vh;
+    background-color: transparent;
+}
+body {
+    background-color: #5cdb95;
+}
+.container {
+    /* height: 100%; */
+    color: #edf5e1;
+    font-family: "Open Sans", sans-serif;
+}
+.title {
+    font-size: 5em;
+    max-width: 60%;
+    text-align: center;
+}
+.subTitle {
+    font-size: 2em;
+    max-width: 60%;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    max-height: 70%;
+}
+
+.choosingImage {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 1em;
+}
+
+.retunedImg {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    max-width: 100%;
+    font-family: apercu, sans-serif;
+    border-color: transparent;
+    color: #8ee4AF;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 1em;
+    background-color: "#EDF5E1";
+}
+
+
+.displayResult {
+    max-width:  30%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    /* margin: 1em; */
+}
+
+.selected {
+    border: 2px solid blue;
+}
+
+.notSelected {
+    border: 2px solid white;
 }
