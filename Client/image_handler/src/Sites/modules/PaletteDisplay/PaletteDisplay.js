@@ -1,28 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Button  } from "react-bootstrap";
 import classes from './PaletteDisplay.module.css';
 
-class PaletteDiplays extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            colors: this.props.colors
-        };
-    };
-
-    render() {
-        const list = this.state.colors.map((color) => {
-            console.log(color.value);
-            return <div key={color.id} className={classes.card}>
-               <Button style={{backgroundColor: color.value}}/>
-                {color.id}  
-            </div>
-           
-        })
-        return <div>
-            {list}
-        </div>
-    }
+const PaletteDiplays = (props) => {
+    const rgbToHex = (rgb) => '#' + rgb.map(x => {
+        const hex = x.toString(16)
+        return hex.length === 1 ? '0' + hex : hex
+      }).join('')
+      
+    const list = props.colors? props.colors.map((color, index) => {
+        let rgb = rgbToHex(color);
+        console.log(rgb);
+        return <div key={index} className={classes.card}>
+           <Button style={{backgroundColor: `${rgb}`}}/>
+            {rgb}  
+        </div>;
+    }) : [];   
+    
+    return <div>{list}</div>
 }
 
 export default PaletteDiplays;

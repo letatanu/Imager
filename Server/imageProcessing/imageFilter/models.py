@@ -4,6 +4,6 @@ from django.db import models
 class Image(models.Model):
     task = models.CharField(max_length=100, default='')
     image = models.ImageField()
-
+    numberOfColors = models.IntegerField(default=0)
     def __str__(self):
-        return self.task
+        return self.image.name
