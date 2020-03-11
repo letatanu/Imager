@@ -8,9 +8,7 @@ import axios from 'axios';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const marks = {
-    0: 0,
-    1: 1,
+const marks = {  
     2: 2,
     3: 3,
     4: 4,
@@ -103,7 +101,7 @@ class Palette extends Component {
 
     };
     sliderChanged = (value) => {
-        console.log(value);
+        console.log("number", value);
         let selectedImgs = [...this.state.selectedImages];
         selectedImgs.forEach((image) => {
             image.isSliderChanged = true
@@ -128,6 +126,8 @@ class Palette extends Component {
     }
 
     render() {
+        const colors = [...this.state.currentResult];
+        const results = colors.splice(0,this.state.numberOfColors);
         return (<div>
             <NavBar></NavBar>
             <Jumbotron fluid className={classes.jumbotron}>
@@ -148,8 +148,8 @@ class Palette extends Component {
                 accept="image/png, image/jpeg" onChange={this.handleImageChange} required />
             <button>Drop image here or Click on to Upload </button>
 
-            <Slider min={0} max={9} onChange={(value) => this.sliderChanged(value)} defaultValue={4} dots marks={marks} />
-            <PaletteDiplays colors={this.state.currentResult}></PaletteDiplays>
+            <Slider min={2} max={9} onChange={(value) => this.sliderChanged(value)} defaultValue={4} dots marks={marks} />
+            <PaletteDiplays colors={results}></PaletteDiplays>
         </div>
         )
     }
