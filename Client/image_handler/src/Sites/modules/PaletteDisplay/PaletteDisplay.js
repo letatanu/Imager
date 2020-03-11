@@ -12,7 +12,7 @@ const PaletteDiplays = (props) => {
         let rgb = rgbToHex(color);
         console.log(rgb);
         return <div key={index} className={classes.card}>
-           <Button style={{backgroundColor: `${rgb}`}}/>
+           <Button style={{backgroundColor: `${rgb}`}} className={classes.Button}/>
             {rgb}  
         </div>;
     }) : [];   

@@ -128,7 +128,7 @@ class Palette extends Component {
     render() {
         const colors = [...this.state.currentResult];
         const results = colors.splice(0,this.state.numberOfColors);
-        return (<div>
+        return (<div className={classes.container}>
             <NavBar></NavBar>
             <Jumbotron fluid className={classes.jumbotron}>
                 <h1>
@@ -139,17 +139,18 @@ class Palette extends Component {
                 </p>
                 <p> You can upload up to 20 images</p>
             </Jumbotron>
-            <ImageQueue Queue={this.state.selectedImages} onClick={this.clickOnImage}></ImageQueue>
-            <div >
-
-            </div>
+            <div className={classes.body}>
+            <ImageQueue Queue={this.state.selectedImages} onClick={this.clickOnImage} selectedID={this.state.selectedID==-1? 0: this.state.selectedID}></ImageQueue>
+            <div className={classes.choosingImage}>
             <input type="file"
                 id="image"
-                accept="image/png, image/jpeg" onChange={this.handleImageChange} required />
-            <button>Drop image here or Click on to Upload </button>
-
-            <Slider min={2} max={9} onChange={(value) => this.sliderChanged(value)} defaultValue={4} dots marks={marks} />
+                accept="image/png, image/jpeg" onChange={this.handleImageChange} required style={{margin: "1em"}}/>
+            <Slider min={2} max={9} onChange={(value) => this.sliderChanged(value)} defaultValue={4} dots marks={marks}></Slider>
+            <div style={{margin: "1em"}}>The number of dominant colors</div>  
+            </div>
             <PaletteDiplays colors={results}></PaletteDiplays>
+            </div>
+            
         </div>
         )
     }

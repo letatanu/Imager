@@ -1,0 +1,12 @@
+.card {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    max-width: 100%;
+    font-family: apercu, sans-serif;
+    border-color: transparent;
+    color: #8ee4AF;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 1em;
+}

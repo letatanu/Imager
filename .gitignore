@@ -1,0 +1,30 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/Client/node_modules
+/Client/image_handler/node_modules
+/Client/image_handler/.pnp
+/Client/image_handler/.pnp.js
+
+# testing
+/Client/image_handler/coverage
+
+# production
+/Client/image_handler/build
+
+# misc
+/Client/image_handler/.DS_Store
+/Client/image_handler/.env.local
+/Client/image_handler/.env.development.local
+/Client/image_handler/.env.test.local
+/Client/image_handler/.env.production.local
+
+/Client/image_handler/npm-debug.log*
+/Client/image_handler/yarn-debug.log*
+/Client/image_handler/yarn-error.log*
+
+
+/node_modules
+
+/Server/imageProcessing/media

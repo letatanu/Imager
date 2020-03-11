@@ -1,0 +1,10 @@
+.CardDeck {
+    display: flex;
+    flex-flow: column;
+    margin: 1em;
+    height: 10%;
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
