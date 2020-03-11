@@ -1,31 +1,22 @@
 import React, {Component} from 'react';
 import { CardDeck } from 'reactstrap';
-import ImageCard from './imageModule/Image';
+import Image_Card from './imageModule/Image';
 
 class ImageQueue extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            images: this.props.Queue,
-            chosenImage: 0
-        };
-    }
-    onClickedImage = (e) => {
-        const index = e.target.id;
-        this.setState({
-            chosenImage: index
-        });
-    }
 
     render() {
-        let list = this.state.images.map((image) => {
-            return <ImageCard img={image} onClick={this.onClickedImage} title={''}></ImageCard>
+        console.log(this.props.Queue.length);
+        let list = this.props.Queue.map((image) => {
+            return <Image_Card key={image.id} id={image.id} image={image.url} onClick={(id) => this.props.onClick(id)} title={image.value}></Image_Card>
         });
         
         return (
+            <div>
             <CardDeck>
                 {list}
             </CardDeck>
+            {/* <div>{this.state.chosenImage}</div> */}
+            </div>
         );
     }
 }

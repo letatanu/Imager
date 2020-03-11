@@ -6,13 +6,14 @@ import {Card, CardImg, CardTitle} from 'reactstrap';
 //   border-radius: 3px;
 //   border: none;
 //   color: white;
-// `
+// 
 
 const Image_Card = (props) => {
+    // console.log(props.title);
     return (
-        <Card>
-            <CardImg src={this.props.img} alt=""></CardImg>
-            <CardTitle> {this.props.title} </CardTitle>
+        <Card onClick={() => props.onClick(props.id)} key={props.id}>
+            <CardImg src={props.image} alt=""></CardImg>
+            <CardTitle> {props.title} </CardTitle>
         </Card>
     );
 };

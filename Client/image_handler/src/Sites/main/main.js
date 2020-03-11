@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../modules/NavigationBar/NavBar';
 import classes from './main.module.css';
-import { Button, ButtonToolbar } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import { Button, ButtonToolbar, Jumbotron } from "react-bootstrap";
 
 class MainSite extends Component {
 
@@ -11,15 +10,18 @@ class MainSite extends Component {
         return <div className={classes.mainContainter}>
             <NavBar />
             <div className={classes.welcomeContainer}>
-                <div className={classes.title}>Getting Deeper Understand</div>
-                <div className={classes.title}>your Images</div>
-                <div className={classes.subTitle}>This is a place to extract your images'
-                features and "make up" it. If you want to create your palette,
-        simply go Palette section and upload your image, we will do the rest</div>
-               <ButtonToolbar>
-                    <Button variant="outline-primary" className={classes.button}> <Link to="/palette">Palette</Link></Button>
-                    <Button variant="outline-primary" className={classes.button}>Image Filters</Button>
-                </ButtonToolbar>
+                <Jumbotron className={classes.welcomeContainer}>
+                    <h1 className={classes.title}>Getting Deeper Understanding</h1>
+                    <h1 className={classes.title}>your Images</h1>
+                    <p className={classes.subTitle}>This is a place to extract your images'
+                    features and "make up" it. If you want to create your palette,
+        simply go Palette section and upload your image, we will do the rest</p>
+                    <ButtonToolbar>
+                        <Button variant="outline-primary" className={classes.button} href="#palette">Palette</Button>
+                        <Button variant="outline-primary" className={classes.button} href="#filters">Image Filters</Button>
+                    </ButtonToolbar>
+                </Jumbotron>
+
             </div>
 
         </div>;

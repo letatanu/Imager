@@ -12,18 +12,17 @@
 }
 .title {
     font-size: 4rem;
-    max-width: 50%;
+    max-width: 60%;
     text-align: center;
 }
 .subTitle {
     font-size: 1rem;
-    max-width: 50%;
+    max-width: 60%;
     text-align: center;
     margin-top: 3em;
 }
 .mainContainter{
     display: flex;
-    /* align-items: stretch; */
     flex-direction: column;
     height: 100vh;
    

@@ -12,16 +12,11 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const links = [
-    { href: '#home', text: 'Palette' },
-    { href: '#card', text: 'Filters' },
-    { href: '#about', text: 'About' },
+    { id: 1, href: '#palette', text: 'Palette' },
+    { id: 2, href: '#filters', text: 'Filters' },
+    { id: 3, href: '#about', text: 'About' },
 ];
 
-const createNavItem = ({ href, text, className }) => (
-    <NavItem>
-        <NavLink href={href} className={className}>{text}</NavLink>
-    </NavItem>
-)
 class NavBar extends Component {
 
     constructor(props) {
@@ -41,16 +36,21 @@ class NavBar extends Component {
     }
 
     render() {
+        const list = links.map(({ id, href, text, className }) => {
+            return <NavItem key={id}>
+                <NavLink href={href} className={className} >{text}</NavLink>
+            </NavItem>
+        })
         return <Navbar color="dark" dark expand="md" sticky="top">
-                <NavbarBrand href='/'>Imager</NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
-                <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                        {links.map(createNavItem)}
-                    </Nav>
-                </Collapse>
-            </Navbar>;
-      
+            <NavbarBrand href='/'>Imager</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+                <Nav className="ml-auto" navbar>
+                    {list}
+                </Nav>
+            </Collapse>
+        </Navbar>;
+
     };
 };
 
