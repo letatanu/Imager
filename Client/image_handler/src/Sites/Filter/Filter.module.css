@@ -71,8 +71,10 @@ body {
 
 .selected {
     border: 2px solid blue;
+    /* background-color: teal; */
 }
 
 .notSelected {
+    /* background-color: blanchedalmond; */
     border: 2px solid white;
 }

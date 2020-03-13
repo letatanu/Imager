@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button  } from "react-bootstrap";
+import {Box} from "@material-ui/core";
 import classes from './PaletteDisplay.module.css';
 
 const PaletteDiplays = (props) => {
@@ -10,14 +10,14 @@ const PaletteDiplays = (props) => {
       
     const list = props.colors? props.colors.map((color, index) => {
         let rgb = rgbToHex(color);
-        console.log(rgb);
-        return <div key={index} >
-           <Button style={{backgroundColor: `${rgb}`}} className={classes.Button}/>
-            {rgb}  
+        // console.log(rgb);
+        return <div key={index} className={classes.card}>
+           <Box boxShadow={3} bgcolor={rgb} className={classes.Button}/>
+            {index+1}. {rgb}  
         </div>;
     }) : [];   
     
-    return <div className={classes.card}>{list}</div>
+    return <div className={classes.container}>{list}</div>
 }
 
 export default PaletteDiplays;

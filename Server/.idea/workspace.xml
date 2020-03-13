@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cdf44d5-b579-4e3b-a03f-23a3c14ff32f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imageProcessing/.ebextensions/django.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imageProcessing/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/Filter/Filter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/Filter/Filter.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/modules/ImgQueue/ImgQueue.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/modules/ImgQueue/ImgQueue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/modules/ImgQueue/imageModule/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/modules/ImgQueue/imageModule/Image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imageProcessing/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/imageFilter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/imageFilter/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imageProcessing/imageFilter/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +39,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="H:/Data_Collector" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -119,10 +122,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="1251" y="366" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1583613049012" />
-    <state x="1353" y="449" key="FileChooserDialogImpl" timestamp="1582991448891">
+    <state x="1353" y="449" key="FileChooserDialogImpl" timestamp="1583956329373">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="1353" y="449" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1582991448891" />
+    <state x="1353" y="449" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1583956329373" />
     <state width="1001" height="376" key="GridCell.Tab.0.bottom" timestamp="1583590405986">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

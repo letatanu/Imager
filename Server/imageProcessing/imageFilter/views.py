@@ -58,18 +58,22 @@ class ImageFilterView(APIView):
                     palette = colorTh.get_palette(numOfColors)
                     print(palette)
                     os.remove(img_url)
-                    return Response(palette, status=status.HTTP_200_OK)
+                    result = {
+                        "numberOfColor": numOfColors,
+                        "palette": palette
+                    }
+                    return Response(result, status=status.HTTP_200_OK)
                 elif task == "Gaussian":
                     image = np.asarray(bytearray(image), dtype="uint8")
                     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-                    gauss = cv2.GaussianBlur(image,(5,5),0)
+                    gauss = cv2.GaussianBlur(image,(5,5),1)
                     cv2.imwrite(os.path.join(settings.MEDIA_ROOT, name_modified), gauss)
                     print(name_modified)
                     return Response(str(os.path.join(settings.MEDIA_URL, name_modified)), status=status.HTTP_200_OK)
                 elif task == "Detail":
                     image = np.asarray(bytearray(image), dtype="uint8")
                     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-                    detail = cv2.detailEnhance(image, sigma_s=10, sigma_r=0.15)
+                    detail = cv2.detailEnhance(image, sigma_s=10, sigma_r=0.5)
                     cv2.imwrite(os.path.join(settings.MEDIA_ROOT, name_modified), detail)
                     print(name_modified)
                     return Response(str(os.path.join(settings.MEDIA_URL, name_modified)), status=status.HTTP_200_OK)

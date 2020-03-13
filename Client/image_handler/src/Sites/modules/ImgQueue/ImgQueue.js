@@ -5,7 +5,7 @@ class ImageQueue extends Component {
 
     render() {
     
-        console.log(this.props.Queue.length);
+        // console.log(this.props.Queue.length);
         let list = this.props.Queue.map((image) => {
             return <Image_Card key={image.id} id={image.id} image={image.url} onClick={(id) => this.props.onClick(id)} title={image.image.name} selectedID={this.props.selectedID}></Image_Card>
         });

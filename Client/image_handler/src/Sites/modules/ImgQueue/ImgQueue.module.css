@@ -1,10 +1,13 @@
 .CardDeck {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     margin: 1em;
-    height: 10%;
-    width: 10%;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
+    /* height: 10%;
+    width: 10%; */
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* padding: 1em; */
+    width: 100%;
+    overflow-x: auto;
+    max-height: 200px;
 }
