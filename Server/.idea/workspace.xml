@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cdf44d5-b579-4e3b-a03f-23a3c14ff32f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/.ebextensions/django.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="9cdf44d5-b579-4e3b-a03f-23a3c14ff32f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/imageProcessing" />
   </component>
   <component name="ProjectId" id="1YQAAHrLxzCnZAuiDGF6g6SHv1e" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
