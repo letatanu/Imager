@@ -89,8 +89,8 @@ class Palette extends Component {
         })
         console.log("number of colors", this.state.numberOfColors);
         const urls = {
-            host: "http://localhost:8000",
-            post: 'http://localhost:8000/api/posts/'
+            host: "https://serverimage.herokuapp.com",
+            post: 'https://serverimage.herokuapp.com/api/posts/'
         }
         let data = null;
         let form_data = new FormData();
