@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cdf44d5-b579-4e3b-a03f-23a3c14ff32f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/migrations/0006_auto_20200313_1803.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/migrations/0007_auto_20200313_1806.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/Filter/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/Filter/Filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/Filter/Filter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/Filter/Filter.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/main/main.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/main/main.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/src/Sites/palette/palette.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/image_handler/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/image_handler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/image_handler/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/imageFilter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageProcessing/imageFilter/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/imageFilter/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imageProcessing/.ebextensions/django.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imageProcessing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imageProcessing/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/imageProcessing/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +23,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YQAAHrLxzCnZAuiDGF6g6SHv1e" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

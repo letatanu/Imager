@@ -28,3 +28,12 @@
 /node_modules
 
 /Server/imageProcessing/media
+
+/Server/imageProcessing/*.pyc
+/Server/imageProcessing/*~
+/Server/imageProcessing/.vscode
+/Server/imageProcessing/__pycache__
+/Server/imageProcessing/myvenv
+/Server/imageProcessing/db.sqlite3
+/Server/imageProcessing/static
+/Server/imageProcessing/.DS_Store
