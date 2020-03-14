@@ -5,7 +5,7 @@ import PaletteDiplays from '../modules/PaletteDisplay/PaletteDisplay';
 import { Jumbotron } from "react-bootstrap";
 import classes from './palette.module.css';
 import axios from 'axios';
-import { CircularProgress, Slider, withStyles, Button, Grid } from "@material-ui/core";
+import { CircularProgress, Slider, withStyles, Grid, Button } from "@material-ui/core";
 // import {FiUpload} from 'react-icons/fi';
 const PrettoSlider = withStyles({
     root: {
@@ -97,6 +97,7 @@ class Palette extends Component {
         form_data.append('image', image);
         form_data.append('task', task);
         form_data.append('numberOfColors', this.state.numberOfColors);
+        form_data.append("image_id", id);
         let url = urls.post;
         axios.post(url, form_data, {
             headers: {
@@ -186,31 +187,44 @@ class Palette extends Component {
                             min={2}
                             max={9}
                             aria-label="pretto slider"
+                            onChange={(event, newValue) => {this.setState({numberOfColors: newValue})}}
                             onChangeCommitted={this.sliderChanged} defaultValue={4}
                             style={{ width: "30%" }} />
-                        <div style={{ margin: "1em" }}>The number of dominant colors</div>
-                        <input type="file"
-                            id="image"
-                            accept="image/png, image/jpeg" onChange={this.handleImageChange} required style={{ margin: "1em" }} />
+                        <div style={{ margin: "1em" }}>The number of dominant colors: {this.state.numberOfColors}</div>
+                        <div>
+                        <input
+                                accept="image/*"
+                                className={classes.input}
+                                id="contained-button-file"
+                                onChange={this.handleImageChange} required
+                                type="file"
+                                style={{display: 'none'}}
+                            />
+                            <label htmlFor="contained-button-file">
+                                <Button variant="contained" color="primary" component="span">
+                                    Select an image
+                                </Button>
+                            </label>
+                        </div>
+    
                     </Grid>
                     <Grid item xs={4} />
                     <Grid item xs={4}>
                         <ImageQueue Queue={this.state.selectedImages} onClick={this.clickOnImage} selectedID={this.state.selectedID == -1 ? 0 : this.state.selectedID} />
                     </Grid>
                     <Grid item xs={4} />
-                    <Grid item xs={3} />
-                    <Grid item xs={3} className={classes.retunedImg}>
+
+                    <Grid item xs={1} />
+                    <Grid item xs={5} className={classes.retunedImg}>
                         {selectedImg}
                     </Grid>
 
-                    <Grid item xs={3} >
-                        {resultImg}
-                    </Grid>
-                    <Grid item xs={3} />
+                    <Grid item xs={1} />
+                    <Grid item xs={3} >  {resultImg}</Grid>
+                    <Grid item xs={1} />
 
                 </Grid>
             </div>
-
         </div>
         )
     }

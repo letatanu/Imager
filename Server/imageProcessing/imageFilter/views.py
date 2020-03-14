@@ -43,13 +43,19 @@ class ImageFilterView(APIView):
                 name = img.name
                 task = post_serializer.validated_data['task']
                 name_modified = name[:-4] + task + name[-4:]
+                id = post_serializer.validated_data['image_id']
+                result = {
+                    "image_id": id,
+                    "task" : task,
+                    "url_result" : str(os.path.join(settings.MEDIA_URL, name_modified))
+                }
                 if task == 'toGray':
                     image = np.asarray(bytearray(image), dtype="uint8")
                     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
                     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
                     cv2.imwrite(os.path.join(settings.MEDIA_ROOT, name_modified), gray)
                     print(name_modified)
-                    return Response(str(os.path.join(settings.MEDIA_URL,name_modified)), status=status.HTTP_200_OK)
+                    return Response(result, status=status.HTTP_200_OK)
                 elif task == 'palette':
                     img = post_serializer.save()
                     img_url = os.path.join(settings.MEDIA_ROOT, str(img))
@@ -69,14 +75,14 @@ class ImageFilterView(APIView):
                     gauss = cv2.GaussianBlur(image,(5,5),1)
                     cv2.imwrite(os.path.join(settings.MEDIA_ROOT, name_modified), gauss)
                     print(name_modified)
-                    return Response(str(os.path.join(settings.MEDIA_URL, name_modified)), status=status.HTTP_200_OK)
+                    return Response(result, status=status.HTTP_200_OK)
                 elif task == "Detail":
                     image = np.asarray(bytearray(image), dtype="uint8")
                     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
                     detail = cv2.detailEnhance(image, sigma_s=10, sigma_r=0.5)
                     cv2.imwrite(os.path.join(settings.MEDIA_ROOT, name_modified), detail)
                     print(name_modified)
-                    return Response(str(os.path.join(settings.MEDIA_URL, name_modified)), status=status.HTTP_200_OK)
+                    return Response(result, status=status.HTTP_200_OK)
             # name = post_serializer.save()
             # name = str(name)
             # name_modified = name[:-4] + "_modified" + name[-4:]
