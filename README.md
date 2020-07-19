@@ -8,7 +8,7 @@ Palette           |  Filter
 :-------------------------:|:-------------------------:
 ![Palette](imager.png)  |  ![Filter](filter.png)
 
-You can give it a try [here](https://letatanu.github.io/FinalProject/#/).
+You can give it a try [here](https://letatanu.github.io/Imager/#/).
 # Materials Used
 - The button "Upload" is implemented following the example of the component Button in https://material-ui.com/components/buttons/
 - Frontend: mainly using materials from "material-ui" and "react-boostrap" libraries.
