@@ -1,4 +1,4 @@
-# FinalProject
+# Imager
 This project is to build a website for image processing called Imager. It will have 2 functions:
 1. Create Palette for an input image.
 2. Apply a filter to an input image. 
